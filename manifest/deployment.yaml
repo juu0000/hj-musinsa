@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iam-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iam-api
+  template:
+    metadata:
+      labels:
+        app: iam-api
+    spec:
+      containers:
+      - name: iam-api
+        image: docconman/iam-api:latest
+        ports:
+        - containerPort: 5000
